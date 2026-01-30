@@ -1,15 +1,17 @@
-TOOLCHAIN = /home/siddarth/tools/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin
-CC      = $(TOOLCHAIN)/arm-none-eabi-gcc
-OBJCOPY = $(TOOLCHAIN)/arm-none-eabi-objcopy
-OBJDUMP = $(TOOLCHAIN)/arm-none-eabi-objdump
+CROSS_COMPILE ?= arm-none-eabi-
+
+CC      := $(CROSS_COMPILE)gcc
+OBJCOPY := $(CROSS_COMPILE)objcopy
+OBJDUMP := $(CROSS_COMPILE)objdump
+
 TARGET  = firmware
 CPU     = cortex-m3
+
 CFLAGS  = -mcpu=$(CPU) -mthumb -Wall -Wextra -O0 -g \
           -ffreestanding -nostdlib -nostartfiles
 
 LDFLAGS = -T linker.ld -nostdlib
 
-# Sources here
 SRCS = startup.s main.c fault.c uart.c crash_record.c
 OBJS = $(SRCS:.c=.o)
 OBJS := $(OBJS:.s=.o)
