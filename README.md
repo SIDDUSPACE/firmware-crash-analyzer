@@ -4,12 +4,14 @@ Deterministic HardFault analysis for ARM Cortex-M using Renode
 
 A production-style firmware crash analysis framework that captures CPU state, fault status registers, and root cause, supports post-mortem symbolication, and runs entirely in a hardware-free emulated SoC environment.
 <p align="left">
+  <img src="https://github.com/SIDDUSPACE/firmware-crash-analyzer/actions/workflows/ci.yml/badge.svg"/>
   <img src="https://img.shields.io/badge/Architecture-Cortex--M3-blue"/>
   <img src="https://img.shields.io/badge/Language-C-brightgreen"/>
   <img src="https://img.shields.io/badge/Mode-Bare--Metal-red"/>
   <img src="https://img.shields.io/badge/Emulator-Renode-orange"/>
   <img src="https://img.shields.io/badge/UART-Register--Level-purple"/>
 </p>
+
 
 
 🎯 Why this project made,
