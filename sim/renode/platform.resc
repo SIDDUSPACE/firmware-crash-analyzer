@@ -1,0 +1,8 @@
+using sysbus
+
+mach create
+machine LoadPlatformDescription @/home/siddarth/tools/renode_1.14.0_portable/platforms/boards/stm32f4_discovery.repl
+
+sysbus LoadELF @/home/siddarth/embedded-projects/firmware-crash-analyzer/firmware.elf
+
+start

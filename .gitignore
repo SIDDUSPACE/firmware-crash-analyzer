@@ -1,0 +1,11 @@
+# Build artifacts
+*.o
+*.elf
+*.dump
+
+# Editor / OS
+.vscode/
+.DS_Store
+
+# Renode temp files
+*.tmp

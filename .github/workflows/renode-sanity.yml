@@ -1,0 +1,26 @@
+name: Renode Sanity (Non-Blocking)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  renode:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y wget python3
+
+      - name: Download Renode
+        run: |
+          wget https://github.com/renode/renode/releases/download/v1.14.0/renode-1.14.0.linux-portable.tar.gz
+          tar -xzf renode-1.14.0.linux-portable.tar.gz
+
+      - name: Run Renode platform script (sanity)
+        run: |
+          ./renode_1.14.0_portable/renode -console sim/renode/platform.resc || true

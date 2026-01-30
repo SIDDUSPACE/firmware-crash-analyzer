@@ -1,0 +1,28 @@
+name: Firmware CI (Build Only)
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install ARM GCC toolchain
+        run: |
+          sudo apt update
+          sudo apt install -y gcc-arm-none-eabi binutils-arm-none-eabi make
+
+      - name: Build firmware
+        run: |
+          make clean
+          make
+
+      - name: Verify firmware ELF
+        run: |
+          test -f firmware.elf
